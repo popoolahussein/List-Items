@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FaTrashAlt } from 'react-icons/fa';
 
 const LineItem = ({ item, handleCheck, handleDelete }) => {
@@ -22,6 +23,19 @@ const LineItem = ({ item, handleCheck, handleDelete }) => {
       />
     </li>
   );
+};
+
+LineItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]).isRequired,
+    checked: PropTypes.bool.isRequired,
+    item: PropTypes.string.isRequired,
+  }).isRequired,
+  handleCheck: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default LineItem;

@@ -1,6 +1,7 @@
-import ItemList from './ItemList';
+import PropTypes from 'prop-types';
+import ItemList from './ItemList'; // Adjust the path based on your file structure
 
-function Content({ items, setItems, handleCheck, handleDelete }) {
+function Content({ items, handleCheck, handleDelete }) {
   return (
     <div className='content-div'>
       {items.length ? (
@@ -15,5 +16,21 @@ function Content({ items, setItems, handleCheck, handleDelete }) {
     </div>
   );
 }
+
+// Content.jsx
+Content.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ]).isRequired,
+      checked: PropTypes.bool.isRequired,
+      item: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  handleCheck: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+};
 
 export default Content;

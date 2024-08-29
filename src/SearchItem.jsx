@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
 
 const SearchItem = ({ search, setSearch }) => {
@@ -25,6 +26,11 @@ const SearchItem = ({ search, setSearch }) => {
        {/* </button> */}
     </form>
   )
-}
+};
+
+SearchItem.propTypes = {
+  search: PropTypes.string.isRequired,
+  setSearch: PropTypes.func.isRequired,
+};
 
 export default SearchItem

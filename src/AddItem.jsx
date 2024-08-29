@@ -1,5 +1,6 @@
 import { FaPlus } from 'react-icons/fa';
 import { useRef } from 'react';
+import PropTypes from 'prop-types';
 
 const AddItem = ({ newItem, setNewItem, handleSubmit }) => {
     const inputRef = useRef();
@@ -28,6 +29,12 @@ const AddItem = ({ newItem, setNewItem, handleSubmit }) => {
        </button>
     </form>
   )
-}
+};
+
+AddItem.propTypes = {
+  newItem: PropTypes.string.isRequired,
+  setNewItem: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+};
 
 export default AddItem
