@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ItemList from './ItemList'; // Adjust the path based on your file structure
+import ItemList from './ItemList';
 
 function Content({ items, handleCheck, handleDelete }) {
   return (
@@ -17,7 +17,6 @@ function Content({ items, handleCheck, handleDelete }) {
   );
 }
 
-// Content.jsx
 Content.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({

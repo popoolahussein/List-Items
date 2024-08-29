@@ -1,7 +1,7 @@
 import Header from './Header';
 import SearchItem from './SearchItem';
 import AddItem from './AddItem';
-import Content from './Content';
+import Content from './content';
 import Footer from './footer';
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';

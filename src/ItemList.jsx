@@ -16,7 +16,6 @@ const ItemList = ({ items, handleCheck, handleDelete }) => {
   );
 }
 
-// ItemList.jsx
 ItemList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
