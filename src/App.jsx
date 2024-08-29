@@ -4,7 +4,6 @@ import AddItem from './AddItem';
 import Content from './content';
 import Footer from './footer';
 import { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [items, setItems] = useState(() => {
@@ -13,6 +12,8 @@ function App() {
   });
   const [newItem, setNewItem] = useState('');
   const [search, setSearch] = useState('');
+
+  const generateId = () => `id-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 
   useEffect(() => {
     const savedItems = localStorage.getItem('generallist');
@@ -34,13 +35,8 @@ function App() {
 
   const addItem = (item) => {
     const itemExists = items.some(existingItem => existingItem.item.toLowerCase() === item.toLowerCase());
-
-    if (itemExists) {
-      alert('This item already exists in the list.');
-      return;
-    }
-
-    const id = uuidv4();
+    
+    const id = generateId();
     const myNewItem = { id, checked: false, item };
     const listItems = [...items, myNewItem];
     setItems(listItems);
@@ -76,6 +72,7 @@ function App() {
         newItem={newItem}
         setNewItem={setNewItem}
         handleSubmit={handleSubmit}
+        existingItems={items.map(item => item.item)}
       />
       <Content
         items={items.filter(item => item.item.toLowerCase().includes(search.toLowerCase()))}
