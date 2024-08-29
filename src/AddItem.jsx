@@ -18,7 +18,7 @@ const AddItem = ({ newItem, setNewItem, handleSubmit, existingItems }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (!checkForDuplicate()) {
-      handleSubmit();
+      handleSubmit(e);
       setNewItem('');
       inputRef.current.focus();
     }
