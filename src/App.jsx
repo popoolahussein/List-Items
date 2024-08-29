@@ -35,7 +35,12 @@ function App() {
 
   const addItem = (item) => {
     const itemExists = items.some(existingItem => existingItem.item.toLowerCase() === item.toLowerCase());
-    
+
+    if (itemExists) {
+      alert('This item already exists in the list.');
+      return;
+    }
+
     const id = generateId();
     const myNewItem = { id, checked: false, item };
     const listItems = [...items, myNewItem];
